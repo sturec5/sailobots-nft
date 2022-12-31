@@ -6,6 +6,9 @@ Welcome to the Sail-o-Bots a.k.a. SeaHams project, a collection of 750 unique di
 ## Description
 The Sail-o-bots project is a series of digital artworks created using the p5.js library. Each piece depicts a different robotic sailor on its own unique adventure, exploring the high seas and beyond. The collection as a whole is a tribute to the beauty and wonder of the ocean, as seen through the eyes of these mechanical creatures.
 
+More About the Project: 
+https://www.artblocks.io/collections/presents/projects/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/98
+
 ## Usage
 This project is intended for personal use and appreciation of the art. It is not to be used for commercial purposes without the express permission of the artist, Sturec.
 
