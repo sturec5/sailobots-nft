@@ -1,4 +1,4 @@
-# Sail-o-bots
+# Sailobots
 Welcome to the Sail-o-Bots a.k.a. SeaHams project, a collection of 750 unique digital art pieces in the form of NFTs created on ArtBlocks.io. These NFTs feature robotic sailors on adventures through the high seas and beyond, combining elements of engineering and traditional art techniques.
 
 <img width="1455" alt="sailobots-seahams-nft" src="https://user-images.githubusercontent.com/120736771/210150824-e62bb083-7704-4d85-b4e4-3487ef14065b.png">
