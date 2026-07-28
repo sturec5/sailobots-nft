@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Sail-o-Bots / SeaHams is a generative Art Blocks project by sturec, mirrored here with provenance, licensing notes, and a local preview."
+    />
+    <meta name="theme-color" content="#08101c" />
+    <title>Sailobots | Art Blocks Project 98</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07101c;
+        --bg2: #101a31;
+        --panel: rgba(12, 18, 32, 0.72);
+        --panel-strong: rgba(10, 15, 28, 0.92);
+        --line: rgba(146, 201, 255, 0.16);
+        --line-strong: rgba(146, 201, 255, 0.28);
+        --text: #f4f2ec;
+        --muted: #a9b4c8;
+        --muted-strong: #d3dbea;
+        --accent: #8de6ff;
+        --accent-2: #a88cff;
+        --accent-3: #73d5ab;
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        font-family: "Manrope", "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 12% 12%, rgba(141, 230, 255, 0.18), transparent 28%),
+          radial-gradient(circle at 84% 18%, rgba(168, 140, 255, 0.18), transparent 26%),
+          radial-gradient(circle at 50% 100%, rgba(115, 213, 171, 0.12), transparent 32%),
+          linear-gradient(180deg, #07101c 0%, #0b1324 52%, #05070d 100%);
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      body::before {
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 92%);
+        opacity: 0.35;
+      }
+
+      body::after {
+        background:
+          radial-gradient(circle at 20% 20%, rgba(141, 230, 255, 0.14), transparent 16%),
+          radial-gradient(circle at 82% 24%, rgba(168, 140, 255, 0.14), transparent 18%),
+          radial-gradient(circle at 58% 86%, rgba(115, 213, 171, 0.1), transparent 18%);
+        filter: blur(8px);
+        animation: drift 22s ease-in-out infinite alternate;
+      }
+
+      @keyframes drift {
+        from {
+          transform: translate3d(-10px, -8px, 0) scale(1);
+        }
+        to {
+          transform: translate3d(12px, 16px, 0) scale(1.03);
+        }
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        width: min(1240px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 24px 0 40px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 26px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: linear-gradient(160deg, rgba(141, 230, 255, 0.22), rgba(168, 140, 255, 0.22));
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .brand-copy {
+        display: grid;
+        gap: 2px;
+      }
+
+      .brand-copy strong {
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand-copy span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .site-pill {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(8, 13, 24, 0.6);
+        color: var(--muted-strong);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .hero-copy {
+        padding: 10px 0 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: clamp(3rem, 7vw, 6rem);
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+        max-width: 10ch;
+      }
+
+      .lede {
+        margin: 18px 0 0;
+        max-width: 58ch;
+        color: #d8e0ef;
+        font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 16px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: var(--text);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: var(--line-strong);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, rgba(141, 230, 255, 0.28), rgba(168, 140, 255, 0.25));
+        box-shadow: 0 18px 40px rgba(141, 230, 255, 0.1);
+      }
+
+      .btn-secondary {
+        background: rgba(14, 20, 36, 0.72);
+      }
+
+      .btn-ghost {
+        background: transparent;
+      }
+
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin: 28px 0 0;
+      }
+
+      .fact {
+        padding: 16px 16px 15px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(9, 14, 25, 0.5);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      }
+
+      .fact dt {
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .fact dd {
+        margin: 0;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--muted-strong);
+      }
+
+      .stage {
+        position: relative;
+      }
+
+      .frame-shell {
+        padding: 16px;
+        border-radius: 30px;
+        background: linear-gradient(180deg, rgba(12, 18, 33, 0.94), rgba(8, 12, 21, 0.9));
+        border: 1px solid rgba(146, 201, 255, 0.18);
+        box-shadow: var(--shadow);
+      }
+
+      .frame-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+      }
+
+      .dotset {
+        display: flex;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(141, 230, 255, 0.75);
+        box-shadow: 0 0 18px rgba(141, 230, 255, 0.3);
+      }
+
+      .dot:nth-child(2) {
+        background: rgba(168, 140, 255, 0.75);
+      }
+
+      .dot:nth-child(3) {
+        background: rgba(115, 213, 171, 0.75);
+      }
+
+      .art-frame {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid rgba(146, 201, 255, 0.16);
+        background:
+          radial-gradient(circle at top, rgba(141, 230, 255, 0.18), transparent 42%),
+          linear-gradient(180deg, #0d1526, #060911);
+      }
+
+      .art-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      .frame-foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .frame-foot strong {
+        color: var(--muted-strong);
+      }
+
+      .sections {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .card {
+        min-height: 100%;
+        padding: 18px 18px 16px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+      }
+
+      .card h2 {
+        margin: 0 0 10px;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 24px;
+        letter-spacing: -0.03em;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .card a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .card a:hover {
+        text-decoration: underline;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(146, 201, 255, 0.15);
+        background: rgba(11, 16, 29, 0.7);
+        color: #dbe6f8;
+        font-size: 13px;
+      }
+
+      .signal {
+        margin-top: 24px;
+        padding: 18px 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(146, 201, 255, 0.2);
+        background:
+          linear-gradient(135deg, rgba(141, 230, 255, 0.14), rgba(168, 140, 255, 0.08)),
+          rgba(10, 15, 28, 0.78);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .signal strong {
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 24px;
+        letter-spacing: -0.03em;
+      }
+
+      .signal span {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .signal a {
+        color: var(--text);
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 26px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(146, 201, 255, 0.14);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 980px) {
+        .hero,
+        .sections {
+          grid-template-columns: 1fr;
+        }
+
+        .facts {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar,
+        footer {
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          width: min(100vw - 20px, 1240px);
+          padding-top: 12px;
+          padding-bottom: 24px;
+        }
+
+        .brand-copy span,
+        .site-pill,
+        .frame-foot,
+        .card p,
+        .lede {
+          font-size: 14px;
+        }
+
+        h1 {
+          font-size: clamp(2.4rem, 16vw, 4rem);
+        }
+
+        .frame-shell,
+        .card,
+        .fact {
+          border-radius: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Sailobots home">
+          <div class="brand-mark">S</div>
+          <div class="brand-copy">
+            <strong>Sailobots</strong>
+            <span>Art Blocks project 98</span>
+          </div>
+        </a>
+        <div class="site-pill">SeaHams / sturec / p5.js</div>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Generative art archive</p>
+          <h1>Sail-o-Bots / SeaHams</h1>
+          <p class="lede">
+            A sharp little crew of robotic sailors, charting the sea in p5.js. This repo mirrors the shared
+            Art Blocks source, the provenance trail, and a local preview so the project reads like a real
+            portfolio piece instead of a raw code dump.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="preview/index.html?tokenId=98000628&hash=0xaabab74f55579c88bc328fefb317888d0829c4c1a3276a0e88ac970042b8e8ed">Open preview</a>
+            <a class="btn btn-secondary" href="docs/provenance.md">Read provenance</a>
+            <a class="btn btn-ghost" href="https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/98000628">View token</a>
+          </div>
+
+          <dl class="facts">
+            <div class="fact">
+              <dt>Artist</dt>
+              <dd>sturec</dd>
+            </div>
+            <div class="fact">
+              <dt>Edition</dt>
+              <dd>750 works</dd>
+            </div>
+            <div class="fact">
+              <dt>Script</dt>
+              <dd>p5@1.0.0</dd>
+            </div>
+            <div class="fact">
+              <dt>License</dt>
+              <dd>NFT License</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="stage" aria-label="Project preview">
+          <div class="frame-shell">
+            <div class="frame-head">
+              <div class="dotset" aria-hidden="true">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <span>Live sample</span>
+            </div>
+            <div class="art-frame">
+              <iframe
+                title="Sail-o-Bots preview"
+                src="preview/index.html?tokenId=98000628&hash=0xaabab74f55579c88bc328fefb317888d0829c4c1a3276a0e88ac970042b8e8ed"
+                loading="eager"
+              ></iframe>
+            </div>
+            <div class="frame-foot">
+              <span><strong>Project 98</strong> from Art Blocks Presents</span>
+              <span>Sample token #628</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="sections" aria-label="Repository highlights">
+        <article class="card">
+          <h2>Source</h2>
+          <p>
+            The shared generator lives in <a href="src/sailobots.js">src/sailobots.js</a>. Each token adds only its
+            own hash and metadata at render time.
+          </p>
+          <div class="tags" aria-label="Source tags">
+            <span class="tag">Shared script</span>
+            <span class="tag">On-chain</span>
+            <span class="tag">p5.js</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Provenance</h2>
+          <p>
+            See <a href="docs/provenance.md">docs/provenance.md</a> for the contract, project ID, sample hash,
+            and attribution trail, including the Strange Robots lineage.
+          </p>
+          <div class="tags" aria-label="Provenance tags">
+            <span class="tag">Project 98</span>
+            <span class="tag">Contract 0xa7d8...</span>
+            <span class="tag">sturec</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>License</h2>
+          <p>
+            The Art Blocks metadata lists the project license as <a href="docs/license.md">NFT License</a>.
+            I kept that note separate from the code mirror so the repo stays clear about what is art licensing
+            and what is source code.
+          </p>
+          <div class="tags" aria-label="License tags">
+            <span class="tag">NFT License</span>
+            <span class="tag">Collector display rights</span>
+            <span class="tag">Repo note</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="signal">
+        <div>
+          <strong>The art is the algorithm.</strong>
+          <span>
+            This page gives the project a proper front door, while the preview and provenance files carry the
+            technical details underneath.
+          </span>
+        </div>
+        <a class="btn btn-secondary" href="preview/index.html?tokenId=98000628&hash=0xaabab74f55579c88bc328fefb317888d0829c4c1a3276a0e88ac970042b8e8ed">Launch the preview</a>
+      </section>
+
+      <footer>
+        <span>Built as a clean archive for Sail-o-Bots / SeaHams.</span>
+        <span>
+          Links:
+          <a href="README.md">README</a>
+          /
+          <a href="docs/provenance.md">Provenance</a>
+          /
+          <a href="docs/license.md">License note</a>
+        </span>
+      </footer>
+    </main>
+  </body>
+</html>
