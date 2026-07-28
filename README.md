@@ -7,6 +7,8 @@ Sail-o-Bots a.k.a. SeaHams is a collection of 750 unique digital art pieces crea
 ## Repository Layout
 
 - `src/sailobots.js` - the project-level p5.js generator script
+- `preview/index.html` - local preview entrypoint
+- `docs/license.md` - the Art Blocks project license note
 - `docs/provenance.md` - contract, project, token hash, and attribution notes
 - `README.md` - overview and quick links
 
@@ -23,4 +25,4 @@ Art Blocks project page: https://www.artblocks.io/collections/presents/projects/
 ## Notes
 
 The source mirrors the on-chain Art Blocks project script and includes provenance details in `docs/provenance.md`.
-If you later want a local preview, the next natural addition would be a tiny `index.html` that loads p5.js and this script.
+Open `preview/index.html` in a browser to render the project locally with a sample token hash.

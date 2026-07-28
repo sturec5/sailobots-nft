@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sail-o-Bots Preview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0c1020;
+        --panel: rgba(14, 19, 38, 0.86);
+        --text: #f3f1ea;
+        --muted: #a9b1c7;
+        --accent: #8ce1ff;
+      }
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at top, rgba(79, 145, 255, 0.18), transparent 42%),
+          linear-gradient(180deg, #141934 0%, #0c1020 52%, #050812 100%);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      body {
+        overflow: hidden;
+      }
+      #hud {
+        position: fixed;
+        z-index: 10;
+        top: 16px;
+        left: 16px;
+        max-width: min(92vw, 520px);
+        padding: 14px 16px;
+        border: 1px solid rgba(140, 225, 255, 0.18);
+        border-radius: 16px;
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+      #hud h1 {
+        margin: 0 0 4px;
+        font-size: 16px;
+        line-height: 1.2;
+      }
+      #hud p {
+        margin: 6px 0 0;
+        font-size: 13px;
+        line-height: 1.4;
+        color: var(--muted);
+      }
+      code {
+        color: var(--accent);
+        font-size: 12px;
+        word-break: break-all;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hud">
+      <h1>Sail-o-Bots local preview</h1>
+      <p>
+        This loads the shared project script from <code>src/sailobots.js</code> with a sample token hash from Art Blocks.
+      </p>
+      <p><strong>Token:</strong> <code id="token-id"></code></p>
+      <p><strong>Hash:</strong> <code id="token-hash"></code></p>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const tokenId = params.get("tokenId") || "98000628";
+      const hash = params.get("hash") || "0xaabab74f55579c88bc328fefb317888d0829c4c1a3276a0e88ac970042b8e8ed";
+
+      window.tokenData = { tokenId, hash };
+      document.getElementById("token-id").textContent = tokenId;
+      document.getElementById("token-hash").textContent = hash;
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="../src/sailobots.js"></script>
+  </body>
+</html>
