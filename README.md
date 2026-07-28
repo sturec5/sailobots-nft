@@ -27,3 +27,8 @@ Art Blocks project page: https://www.artblocks.io/collections/presents/projects/
 
 The source mirrors the on-chain Art Blocks project script and includes provenance details in `docs/provenance.md`.
 Open `index.html` for the visual landing page, or `preview/index.html` to render the project locally with a sample token hash.
+
+## Artist Links
+
+- Website: https://sturec.art
+- Twitter: https://twitter.com/sturec5

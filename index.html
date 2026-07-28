@@ -200,6 +200,13 @@
         margin-top: 28px;
       }
 
+      .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
       .btn {
         display: inline-flex;
         align-items: center;
@@ -232,6 +239,15 @@
 
       .btn-ghost {
         background: transparent;
+      }
+
+      .btn-social {
+        min-height: 40px;
+        padding: 0 14px;
+        background: rgba(12, 18, 32, 0.6);
+        color: var(--muted-strong);
+        font-size: 13px;
+        font-weight: 700;
       }
 
       .facts {
@@ -513,13 +529,19 @@
           <p class="lede">
             A sharp little crew of robotic sailors, charting the sea in p5.js. This repo mirrors the shared
             Art Blocks source, the provenance trail, and a local preview so the project reads like a real
-            portfolio piece instead of a raw code dump.
+            portfolio piece instead of a raw code dump. You can also follow the artist at
+            <a href="https://sturec.art">sturec.art</a> and <a href="https://twitter.com/sturec5">@sturec5</a>.
           </p>
 
           <div class="actions">
-            <a class="btn btn-primary" href="preview/index.html?tokenId=98000628&hash=0xaabab74f55579c88bc328fefb317888d0829c4c1a3276a0e88ac970042b8e8ed">Open preview</a>
+            <a class="btn btn-primary" href="preview/index.html?tokenId=98000001&hash=0x77a0fffa2aa5d6c9c4a0fe6ffc3e6aee0eea4216e3ff2675175d8d3265d7a792">Open preview</a>
             <a class="btn btn-secondary" href="docs/provenance.md">Read provenance</a>
             <a class="btn btn-ghost" href="https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/98000628">View token</a>
+          </div>
+
+          <div class="socials" aria-label="Artist links">
+            <a class="btn btn-social" href="https://sturec.art">sturec.art</a>
+            <a class="btn btn-social" href="https://twitter.com/sturec5">@sturec5</a>
           </div>
 
           <dl class="facts">
@@ -552,16 +574,16 @@
               </div>
               <span>Live sample</span>
             </div>
-            <div class="art-frame">
+          <div class="art-frame">
               <iframe
                 title="Sail-o-Bots preview"
-                src="preview/index.html?tokenId=98000628&hash=0xaabab74f55579c88bc328fefb317888d0829c4c1a3276a0e88ac970042b8e8ed"
+                src="preview/index.html?tokenId=98000001&hash=0x77a0fffa2aa5d6c9c4a0fe6ffc3e6aee0eea4216e3ff2675175d8d3265d7a792"
                 loading="eager"
               ></iframe>
             </div>
             <div class="frame-foot">
               <span><strong>Project 98</strong> from Art Blocks Presents</span>
-              <span>Sample token #628</span>
+              <span>Showcase mint #1</span>
             </div>
           </div>
         </aside>
@@ -614,10 +636,11 @@
           <strong>The art is the algorithm.</strong>
           <span>
             This page gives the project a proper front door, while the preview and provenance files carry the
-            technical details underneath.
+            technical details underneath. The project also points back to <a href="https://sturec.art">sturec.art</a>
+            and <a href="https://twitter.com/sturec5">@sturec5</a>.
           </span>
         </div>
-        <a class="btn btn-secondary" href="preview/index.html?tokenId=98000628&hash=0xaabab74f55579c88bc328fefb317888d0829c4c1a3276a0e88ac970042b8e8ed">Launch the preview</a>
+        <a class="btn btn-secondary" href="preview/index.html?tokenId=98000001&hash=0x77a0fffa2aa5d6c9c4a0fe6ffc3e6aee0eea4216e3ff2675175d8d3265d7a792">Launch the preview</a>
       </section>
 
       <footer>

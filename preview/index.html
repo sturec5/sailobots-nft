@@ -64,7 +64,7 @@
     <div id="hud">
       <h1>Sail-o-Bots local preview</h1>
       <p>
-        This loads the shared project script from <code>src/sailobots.js</code> with a sample token hash from Art Blocks.
+        This loads the shared project script from <code>src/sailobots.js</code> with a showcase token hash from Art Blocks.
       </p>
       <p><strong>Token:</strong> <code id="token-id"></code></p>
       <p><strong>Hash:</strong> <code id="token-hash"></code></p>
@@ -72,8 +72,8 @@
 
     <script>
       const params = new URLSearchParams(location.search);
-      const tokenId = params.get("tokenId") || "98000628";
-      const hash = params.get("hash") || "0xaabab74f55579c88bc328fefb317888d0829c4c1a3276a0e88ac970042b8e8ed";
+      const tokenId = params.get("tokenId") || "98000001";
+      const hash = params.get("hash") || "0x77a0fffa2aa5d6c9c4a0fe6ffc3e6aee0eea4216e3ff2675175d8d3265d7a792";
 
       window.tokenData = { tokenId, hash };
       document.getElementById("token-id").textContent = tokenId;
