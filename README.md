@@ -1,6 +1,6 @@
 # Sailobots
 
-Sail-o-Bots a.k.a. SeaHams is a collection of 750 unique digital art pieces created on Art Blocks. This repository is a clean mirror of the project source and supporting notes, not a per-token dump.
+Sail-o-Bots is a collection of 750 unique digital art pieces created on Art Blocks. This repository is a clean mirror of the project source and supporting notes, not a per-token dump.
 
 <img width="1455" alt="sailobots-seahams-nft" src="https://user-images.githubusercontent.com/120736771/210150824-e62bb083-7704-4d85-b4e4-3487ef14065b.png">
 
