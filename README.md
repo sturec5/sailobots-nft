@@ -10,6 +10,7 @@ Sail-o-Bots is a collection of 750 unique digital art pieces created on Art Bloc
 - `src/sailobots.js` - the project-level p5.js generator script
 - `preview/index.html` - local preview entrypoint
 - `docs/auction-history.md` - verified Sotheby's auction history
+- `docs/public-record.md` - selected external references and coverage
 - `docs/license.md` - the Art Blocks project license note
 - `docs/provenance.md` - contract, project, token hash, and attribution notes
 - `README.md` - overview and quick links
@@ -33,6 +34,10 @@ Open `index.html` for the visual landing page, or `preview/index.html` to render
 
 The project has a verified public Sotheby's record across at least nine lot listings in eight sales between June 1, 2023 and April 16, 2025.
 See `docs/auction-history.md` for the official lot links and dates.
+
+## Public Record
+
+For a compact set of official pages, editorial mentions, and artist-level exhibition or interview references, see `docs/public-record.md`.
 
 ## Artist Links
 
