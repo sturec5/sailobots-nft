@@ -1,19 +1,26 @@
 # Sailobots
-Welcome to the Sail-o-Bots a.k.a. SeaHams project, a collection of 750 unique digital art pieces in the form of NFTs created on ArtBlocks.io. These NFTs feature robotic sailors on adventures through the high seas and beyond, combining elements of engineering and traditional art techniques.
+
+Sail-o-Bots a.k.a. SeaHams is a collection of 750 unique digital art pieces created on Art Blocks. This repository is a clean mirror of the project source and supporting notes, not a per-token dump.
 
 <img width="1455" alt="sailobots-seahams-nft" src="https://user-images.githubusercontent.com/120736771/210150824-e62bb083-7704-4d85-b4e4-3487ef14065b.png">
 
-## Description
-The Sail-o-bots project is a series of digital artworks created using the p5.js library. Each piece depicts a different robotic sailor on its own unique adventure, exploring the high seas and beyond. The collection as a whole is a tribute to the beauty and wonder of the ocean, as seen through the eyes of these mechanical creatures.
+## Repository Layout
 
-More About the Project: 
-https://www.artblocks.io/collections/presents/projects/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/98
+- `src/sailobots.js` - the project-level p5.js generator script
+- `docs/provenance.md` - contract, project, token hash, and attribution notes
+- `README.md` - overview and quick links
 
-## Usage
-This project is intended for personal use and appreciation of the art. It is not to be used for commercial purposes without the express permission of the artist, Sturec.
+## What Belongs Where
 
-## Licensing
-To ensure that the Sail-o-Bots project is protected and properly attributed, it is licensed under the Creative Commons Attribution-NonCommercial 4.0 International license. This means that you are free to share and adapt the artwork for non-commercial purposes, as long as you give appropriate credit to the artist.
+Keep the shared generator code in `src/sailobots.js`.
+Do not make separate files for each minted token unless you specifically want examples or screenshots.
+Each token only contributes its own `tokenData.hash` and metadata at render time; the artwork logic lives in the shared project script.
 
-## Acknowledgments
-Thank you for your interest in the Sail-o-Bots project. I hope you enjoy exploring the adventures of these robotic sailors. If you have any questions or would like to use the artwork for commercial purposes, please contact me at sturec@gmail.com.
+## Project Link
+
+Art Blocks project page: https://www.artblocks.io/collections/presents/projects/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/98
+
+## Notes
+
+The source mirrors the on-chain Art Blocks project script and includes provenance details in `docs/provenance.md`.
+If you later want a local preview, the next natural addition would be a tiny `index.html` that loads p5.js and this script.
